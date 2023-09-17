@@ -1,0 +1,52 @@
+﻿@model Country
+
+<table class="separated">
+    <thead>
+        <tr>
+            <th>
+                Official name
+            </th>
+            <th>
+                Region
+            </th>
+            <th>
+                Capital
+            </th>
+            <th>
+                Languages
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Name.Official</td>
+            <td>@Model.Region</td>
+            @if (Model.Capital != null)
+            {
+                string tmp = "";
+                @foreach (var i in Model.Capital)
+                {
+                    tmp += $"{i}, ";
+                }
+                <td>@tmp.TrimEnd(new char[] {',',' '})</td>
+            }
+            else
+            {
+                <td>No data</td>
+            }
+            @if (Model.Languages != null)
+            {
+                string tmp = "";
+                @foreach (var i in @Model.Languages)
+                {
+                    tmp += $"{i.Value}, ";
+                }
+                <td>@tmp.TrimEnd(new char[] {',',' '})</td>
+            }
+            else
+            {
+                <td>No data</td>
+            }
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model IQueryable<Country>
+
+<div id="main">
+    <table class="separated">
+        <thead>
+            <tr>
+                <th>
+                    Country name
+                </th>
+                <th>
+                    Capital
+                </th>
+                <th>
+                    Details
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                @foreach (var entity in Model)
+                {
+                    <tr>
+                        <td>@entity.Name.Official</td>
+                        @if (entity.Capital != null)
+                        {
+                            string tmp = "";
+                            @foreach (var i in entity.Capital)
+                            {
+                                tmp += $"{i}, ";
+                            }
+                            <td>@tmp.TrimEnd(new char[] {',',' '})</td>
+                        }
+                        else
+                        {
+                            <td>No data</td>
+                        }
+                        <td>
+                            <a href="/Details?fullname=@entity.Name.Official">Details</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
