@@ -1,5 +1,5 @@
-﻿using Task2.Domain.Repositories.RestCountries;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Task2.Domain.Repositories.RestCountries;
 
 namespace Task2.Controllers
 {

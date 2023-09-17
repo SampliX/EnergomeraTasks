@@ -13,7 +13,7 @@ namespace Task2.Domain.Repositories.RestCountries
 
         public IQueryable<Country> GetCountries(string fullname)
         {
-            if(fullname != null)
+            if (fullname != null)
                 return RestCountriesService.GetAllCountries().AsQueryable().Where(x => x.Name.Official.ToLower().Contains(fullname.ToLower()));
             else
                 return GetCountriesSorted();
