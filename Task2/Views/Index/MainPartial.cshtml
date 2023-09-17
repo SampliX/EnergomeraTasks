@@ -10,9 +10,6 @@
                 <th>
                     Capital
                 </th>
-                <th>
-                    Details
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +18,9 @@
                 @foreach (var entity in Model)
                 {
                     <tr>
-                        <td>@entity.Name.Official</td>
+                        <td>
+                            <a href="/Details?fullname=@entity.Name.Official">@entity.Name.Official</a>
+                        </td>
                         @if (entity.Capital != null)
                         {
                             string tmp = "";
@@ -35,9 +34,6 @@
                         {
                             <td>No data</td>
                         }
-                        <td>
-                            <a href="/Details?fullname=@entity.Name.Official">Details</a>
-                        </td>
                     </tr>
                 }
             }
